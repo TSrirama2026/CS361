@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    background: lightgray;
+    margin: 0;
+}
+
+.top-page {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 40px;
+    background-color: gray;
+    border-bottom: 2px solid black;
+}
+
+.action-button {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ababab;
+    border-radius: 5px;
+    font-weight: lighter;
+    cursor: pointer;
+}
+
+.box {
+    padding: 20px 40px;
+    border: 2px solid #333;
+    background-color: white;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+/* body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height : 100vh;
+} */
+
+.checkersBoard {
+    width: 80vw;
+    height: 80vw;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 12.5%;
+    height: 12.5%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.white {
+    background-color: #f0d9b5;
+}
+
+.black {
+    background-color: #b58863;
+}
+
+.coordinate {
+    height: auto;
+    display: flex;
+    bottom: 4%;
+    left: 4%;
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.rank {
+    top: 4%;
+    right: 4%;
+    left: auto;
+}
+
+.whiteText {
+    color: #f0d9b5;
+}
+
+.blackText {
+    color: #b58863;
+}
+
+@media (min-width: 500px) {
+    .chessBoard {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+@media (max-width: 500px) {
+    .coordinate {
+        font-size: 8px;
+    }
+}
