@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Checkers Game</title>
+    <link rel="stylesheet" href="game.css" />
+        <script>
+            async function restartGame() {
+            try {
+                // Call microservice on port 3002
+                const res = await fetch('http://localhost:3002/restart', {
+                method: 'POST'
+                });
+                const data = await res.json();
+                console.log('Game restarted:', data);
+                initBoardData();
+                renderBoard();
+                updateStatus("Game restarted!");
+            } catch (err) {
+                console.error('Error restarting game:', err);
+            }
+            }
+        </script>
+    </head>
+    <body>
+        <main class="content">
+            <!-- Top navigation buttons -->
+            <div class="top-page">
+                <a href="help.html" class="action-button">Help ?</a>
+                <a href="account.html" class="action-button">Account Settings 👤</a>
+                <button class="action-button" onclick="restartGame()">🔄 Restart</button>
+            </div>
+
+            <div id="checkersBoard" class="checkersBoard"></div>
+            <p id="statusMessage" style="text-align:center; font-weight:bold;"></p>
+        </main>
+        <script src="game.js"></script>
+    </body>
+</html>

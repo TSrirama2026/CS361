@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="login.css" />
+    <script>
+      async function handleLogin(e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          // POST /login to login-micro, running on port 3004
+          const res = await fetch("http://localhost:3004/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password })
+          });
+          const data = await res.json();
+
+          if (res.ok) {
+            alert("Login successful!");
+            window.location.href = "game.html";
+          } else {
+            alert("Login failed: " + data.message);
+          }
+        } catch (err) {
+          console.error("Error during login:", err);
+          alert("Something went wrong!");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Sign In</h2>
+      <!-- Notice: no action="..." — we call handleLogin() instead -->
+      <form onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <input type="text" id="username" placeholder="Username" required />
+        </div>
+        <div class="input-group">
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit" class="btn">ENTER</button>
+      </form>
+    </div>
+  </body>
+</html>
