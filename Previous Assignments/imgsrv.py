@@ -1,3 +1,5 @@
+# Early CS 361 Assignment
+
 import os
 import time
 
