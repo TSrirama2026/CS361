@@ -1,3 +1,6 @@
+// The consts were mostly the same at the top
+// Test commit
+
 const express = require('express');
 const cors = require('cors'); // Use to call other ports
 const app = express();
